@@ -1,7 +1,13 @@
-import ListGroup from "./components/ListGroup";
+import NavBar from "./components/NavBar";
+import IndexContent from "./components/IndexContent";
 
 function App() {
-  return <div><ListGroup /></div>;
+  return (
+    <div>
+      <NavBar />
+      <IndexContent />
+    </div>
+  );
 }
 
 export default App;
