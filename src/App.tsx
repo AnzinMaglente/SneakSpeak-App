@@ -3,7 +3,7 @@ import IndexContent from "./components/IndexContent";
 
 function App() {
   return (
-    <div>
+    <div className="bg-color-secondary">
       <NavBar />
       <IndexContent />
     </div>
