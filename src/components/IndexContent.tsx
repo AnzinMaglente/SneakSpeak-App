@@ -1,3 +1,26 @@
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
 function IndexContent() {
   return (
     <main className="flex-column justify-items-center bg-gradient-to-b from-white-2 from-1% via-secondary">
@@ -64,11 +87,19 @@ function IndexContent() {
         </div>
       </div>
       <hr className="w-6xl border-grey-1" />
-      <div className="w-2xl py-8">
-        <h2 className="text-2xl text-black-text">Featured Blogs:</h2>
-        <div className="w-full">
-          <div className="w-100 bg-tertiary"></div>
-        </div>
+      <div className="w-6xl py-8">
+        <h2 className="py-4 text-2xl text-black-text">Featured Blogs:</h2>
+        <Carousel
+          showDots={true}
+          responsive={responsive}
+          infinite={true}
+          itemClass="px-5"
+        >
+          <div className="h-45 bg-white-2">Item 1</div>
+          <div className="h-45 bg-white-2">Item 2</div>
+          <div className="h-45 bg-white-2">Item 3</div>
+          <div className="h-45 bg-white-2">Item 4</div>
+        </Carousel>
       </div>
     </main>
   );
