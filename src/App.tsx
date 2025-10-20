@@ -1,14 +1,11 @@
-import NavBar from "./components/NavBar";
-import IndexContent from "./components/IndexContent";
-import Footer from "./components/Footer";
+import Router from "./pages/router";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <IndexContent />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
