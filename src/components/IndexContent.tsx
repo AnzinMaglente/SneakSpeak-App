@@ -1,4 +1,5 @@
 import Carousel from "react-multi-carousel";
+import { Link } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
@@ -43,9 +44,11 @@ function IndexContent() {
           design in mind.
         </p>
         <div className="my-5 flex items-center justify-center">
-          <button className="w-30 h-10 bg-tertiary text-white-text">
-            Start Now
-          </button>
+          <Link to="/auth">
+            <button className="w-30 h-10 bg-tertiary text-white-text">
+              Start Now
+            </button>
+          </Link>
         </div>
       </div>
       <hr className="w-6xl border-grey-1" />

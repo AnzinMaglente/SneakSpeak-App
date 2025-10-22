@@ -2,7 +2,7 @@ import NavBar from "../../components/NavBar";
 import IndexContent from "../../components/IndexContent";
 import Footer from "../../components/Footer";
 
-function App() {
+function Home() {
   return (
     <div>
       <NavBar />
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

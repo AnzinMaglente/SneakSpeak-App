@@ -1,18 +1,25 @@
+import { Link } from "react-router-dom";
+
 function NavBar() {
   return (
-    <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-color-primary test">
+    <nav className="mx-30 flex items-center justify-between p-6 lg:px-8 bg-color-primary test">
       <div className="container mx-auto flex justify-between items-center">
-        <a className="flex -m-1.5 p-1.5">
-          <img
-            src="src\assets\react.svg"
-            alt="Logo"
-            className="h-8 w-auto"
-          ></img>
-          <h1 className="text-2xl">SneakSpeak</h1>
-        </a>
-        <button className="">Sign in</button>
+        <Link to="/">
+          <div className="flex -m-1.5 p-1.5">
+            <img
+              src="src\assets\react.svg"
+              alt="Logo"
+              className="h-8 w-auto"
+            ></img>
+            <h1 className="text-2xl">SneakSpeak</h1>
+          </div>
+        </Link>
+        <Link to="/auth">
+          <button className="">Sign in</button>
+        </Link>
       </div>
     </nav>
   );
 }
+
 export default NavBar;

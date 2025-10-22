@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { type routerType } from "../types/router.types";
 import pagesData from "./pageData";
 
@@ -7,7 +7,12 @@ const Router = () => {
     return <Route key={title} path={`/${path}`} element={element} />;
   });
 
-  return <Routes>{pageRoutes}</Routes>;
+  return (
+    <Routes>
+      {pageRoutes}
+      <Route path="*" element={<Navigate to="/home" />} />
+    </Routes>
+  );
 };
 
 export default Router;
