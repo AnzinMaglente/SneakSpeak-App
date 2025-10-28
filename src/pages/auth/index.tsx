@@ -1,14 +1,20 @@
 import NavBar from "../../components/NavBar";
 import AuthContent from "../../components/AuthContent";
 import Footer from "../../components/Footer";
+import { motion } from "framer-motion";
 
 function Auth() {
   return (
-    <div>
+    <motion.div
+      initial={{}}
+      animate={{}}
+      exit={{}}
+      transition={{ duration: 0.5 }}
+    >
       <NavBar />
       <AuthContent />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
