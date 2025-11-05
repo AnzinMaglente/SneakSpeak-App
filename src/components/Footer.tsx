@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="w-full h-auto px-40 py-4 mt-5 bg-tertiary">
+    <div className="w-full h-auto px-40 py-4 bg-tertiary">
       <h3 className="text-white-text text-xl">Help</h3>
       <hr className="w-14 border-white-text" />
       <ul className="py-4">

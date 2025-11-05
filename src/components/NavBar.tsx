@@ -11,11 +11,11 @@ function NavBar() {
               alt="Logo"
               className="h-8 w-auto"
             ></img>
-            <h1 className="text-2xl">SneakSpeak</h1>
+            <h1 className="text-2xl ml-5">SneakSpeak</h1>
           </div>
         </Link>
         <Link to="/auth">
-          <button className="">Sign in</button>
+          <button>Sign in</button>
         </Link>
       </div>
     </nav>

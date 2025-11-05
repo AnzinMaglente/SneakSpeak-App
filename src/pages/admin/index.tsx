@@ -1,6 +1,7 @@
-import NavBar from "../../components/NavBar";
+import AdminContent from "../../components/Admin/AdminContent";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
+import AdminHeader from "../../components/Admin/AdminHeader";
 
 function Admin() {
   return (
@@ -10,7 +11,8 @@ function Admin() {
       exit={{}}
       transition={{ duration: 0.5 }}
     >
-      <NavBar />
+      <AdminHeader />
+      <AdminContent />
       <Footer />
     </motion.div>
   );

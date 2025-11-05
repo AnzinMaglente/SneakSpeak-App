@@ -1,5 +1,5 @@
 import NavBar from "../../components/NavBar";
-import AuthContent from "../../components/AuthContent";
+import AuthContent from "../../components/Auth/AuthContent";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
 

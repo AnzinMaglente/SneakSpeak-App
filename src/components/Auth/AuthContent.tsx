@@ -23,9 +23,12 @@ function AuthContent() {
               name="pwd"
               placeholder="Enter your password here"
             />
-            <button className="flex py-2 mx-10 text-center justify-center items-center bg-grey-1 text-white-text">
-              <Link to="/admin">Login</Link>
-            </button>
+            <Link
+              to="/admin"
+              className="flex py-2 mx-10 text-center justify-center items-center bg-grey-1 text-white-text"
+            >
+              <button>Login</button>
+            </Link>
           </div>
 
           <div className="place-self-center">
