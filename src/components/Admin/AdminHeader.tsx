@@ -9,7 +9,7 @@ function AdminHeader() {
         <Link to="/admin">
           <div className="flex -m-1.5 p-1.5">
             <img
-              src="src\assets\react.svg"
+              src="src\assets\Sample Logo.svg"
               alt="Logo"
               className="h-8 w-auto"
             ></img>
@@ -23,9 +23,11 @@ function AdminHeader() {
           <button className="w-10 h-10 mx-5">
             <Notifications fontSize="large" />
           </button>
-          <button className="w-10 h-10 mx-5">
-            <AccountCircle fontSize="large" />
-          </button>
+          <Link to={"/profile"}>
+            <button className="w-10 h-10 mx-5">
+              <AccountCircle fontSize="large" />
+            </button>
+          </Link>
         </div>
       </div>
     </nav>

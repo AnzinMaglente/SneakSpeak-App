@@ -7,7 +7,7 @@ function NavBar() {
         <Link to="/">
           <div className="flex -m-1.5 p-1.5">
             <img
-              src="src\assets\react.svg"
+              src="src\assets\Sample Logo.svg"
               alt="Logo"
               className="h-8 w-auto"
             ></img>

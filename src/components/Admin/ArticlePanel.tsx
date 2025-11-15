@@ -1,11 +1,12 @@
 import { ThumbUp, Comment } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
-function BlogEditorPanel() {
+function ArticlePanel() {
   return (
     <div className="w-2xs h-90 bg-grey-1">
       <div className="bg-white-2 w-full h-30"></div>
       <div className="flex mx-5 my-3 items-center justify-between text-white-text">
-        <h3>Blog Title</h3>
+        <h3>Article Title</h3>
         <div>
           <button>
             0 <ThumbUp />
@@ -25,12 +26,14 @@ function BlogEditorPanel() {
           <br />
           00/00/0000
         </p>
-        <button className="w-20 h-10 border text-white-text bg-tertiary border-white-text">
-          Edit
-        </button>
+        <Link to={"/articleEditor "}>
+          <button className="w-20 h-10 border text-white-text bg-tertiary border-white-text">
+            Edit
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default BlogEditorPanel;
+export default ArticlePanel;

@@ -8,14 +8,12 @@ import {
   BarChart,
   PermMedia,
   Comment,
-  RemoveRedEye,
   Settings,
 } from "@mui/icons-material";
 import AdminHomeTab from "./AdminHomeTab";
 import AdminStatsTab from "./AdminStatsTab";
 import AdminMediaTab from "./AdminMediaTab";
 import AdminCommentsTab from "./AdminCommentsTab";
-import AdminAppearanceTab from "./AdminAppearanceTab";
 import AdminSettingsTab from "./AdminSettingsTab";
 
 interface TabPanelProps {
@@ -104,16 +102,10 @@ function AdminContent() {
             {...a11yProps(3)}
           />
           <Tab
-            icon={<RemoveRedEye />}
-            iconPosition="start"
-            label="Appearance"
-            {...a11yProps(4)}
-          />
-          <Tab
             iconPosition="start"
             icon={<Settings />}
             label="Settings"
-            {...a11yProps(5)}
+            {...a11yProps(4)}
           />
         </Tabs>
         <TabPanel value={value} index={0}>
@@ -129,9 +121,6 @@ function AdminContent() {
           <AdminCommentsTab />
         </TabPanel>
         <TabPanel value={value} index={4}>
-          <AdminAppearanceTab />
-        </TabPanel>
-        <TabPanel value={value} index={5}>
           <AdminSettingsTab />
         </TabPanel>
       </Box>
