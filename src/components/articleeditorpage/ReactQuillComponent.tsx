@@ -1,0 +1,83 @@
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
+
+function ReactQuillComponent({
+  value,
+  onChange,
+}: {
+  value: any;
+  onChange: (delta: any) => void;
+}) {
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      [
+        "bold",
+        "italic",
+        "underline",
+        "strike",
+        { script: "sub" },
+        { script: "super" },
+      ],
+      ["blockquote", "code-block"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      [{ direction: "rtl" }, { align: [] }],
+      ["link", "image", "video", "formula"],
+      [{ size: ["small", false, "large", "huge"] }, { font: [] }],
+      [{ color: [] }, { background: [] }],
+    ],
+    handlers: {},
+  };
+
+  const formats = [
+    "header",
+
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "script",
+
+    "blockquote",
+    "code-block",
+
+    "list",
+    "indent",
+
+    "direction",
+    "align",
+
+    "link",
+    "image",
+    "video",
+    "formula",
+
+    "size",
+    "font",
+
+    "color",
+    "background",
+  ];
+
+  return (
+    <div>
+      <ReactQuill
+        theme="snow"
+        value={value}
+        onChange={(content, delta, source, editor) => {
+          onChange(editor.getContents());
+        }}
+        className="h-105"
+        modules={modules}
+        formats={formats}
+      />
+    </div>
+  );
+}
+
+export default ReactQuillComponent;

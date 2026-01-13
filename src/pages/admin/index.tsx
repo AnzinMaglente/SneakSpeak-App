@@ -1,9 +1,9 @@
-import AdminContent from "../../components/Admin/AdminContent";
-import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import AdminHeader from "../../components/Admin/AdminHeader";
+import Navbar from "../../components/partials/Navbar";
+import AdminContent from "../../components/adminpage/AdminContent";
+import Footer from "../../components/partials/Footer";
 
-function Admin() {
+export default function Admin() {
   return (
     <motion.div
       initial={{}}
@@ -11,11 +11,9 @@ function Admin() {
       exit={{}}
       transition={{ duration: 0.5 }}
     >
-      <AdminHeader />
+      <Navbar />
       <AdminContent />
       <Footer />
     </motion.div>
   );
 }
-
-export default Admin;

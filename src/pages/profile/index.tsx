@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import AdminHeader from "../../components/Admin/AdminHeader";
-import ProfileContent from "../../components/Profile/ProfileContent";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/partials/Navbar";
+import ProfileContent from "../../components/profilepage/ProfileContent";
+import Footer from "../../components/partials/Footer";
 
-function Profile() {
+export default function Profile() {
   return (
     <motion.div
       initial={{}}
@@ -11,11 +11,9 @@ function Profile() {
       exit={{}}
       transition={{ duration: 0.5 }}
     >
-      <AdminHeader />
+      <Navbar />
       <ProfileContent />
       <Footer />
     </motion.div>
   );
 }
-
-export default Profile;

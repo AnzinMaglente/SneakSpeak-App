@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import ArticleEditorContent from "../../components/ArticleEditor/ArticleEditorContent";
-import Footer from "../../components/Footer";
-import AdminHeader from "../../components/Admin/AdminHeader";
+import Navbar from "../../components/partials/Navbar";
+import ArticleEditorContent from "../../components/articleeditorpage/ArticleEditorContent";
+import Footer from "../../components/partials/Footer";
 
-function ArticleEditor() {
+export default function ArticleEditor() {
   return (
     <motion.div
       initial={{}}
@@ -11,11 +11,9 @@ function ArticleEditor() {
       exit={{}}
       transition={{ duration: 0.5 }}
     >
-      <AdminHeader />
+      <Navbar />
       <ArticleEditorContent />
       <Footer />
     </motion.div>
   );
 }
-
-export default ArticleEditor;

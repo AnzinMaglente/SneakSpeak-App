@@ -1,9 +1,9 @@
-import NavBar from "../../components/NavBar";
-import IndexContent from "../../components/IndexContent";
-import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
+import NavBar from "../../components/partials/Navbar";
+import IndexContent from "../../components/homepage/IndexContent";
+import Footer from "../../components/partials/Footer";
 
-function Home() {
+export default function Home() {
   return (
     <motion.div
       initial={{}}
@@ -17,5 +17,3 @@ function Home() {
     </motion.div>
   );
 }
-
-export default Home;
