@@ -9,7 +9,7 @@ router.route('/signin').post(async (req, res) => {
         const user = await User.findOne({email: req.body.email});
 
         if(user){
-            return res.send({
+            return res.status(400).json({
                 message: 'User already exists.',
                 success: false
             })
@@ -27,10 +27,7 @@ router.route('/signin').post(async (req, res) => {
         });
 
     }catch(error){
-        res.send({
-            message: error.message,
-            success: false
-        });
+        res.status(500).json({ message: err.message, success: false });
     }
 })
 
@@ -40,33 +37,20 @@ router.route('/login').post(async (req, res) => {
         const user = await User.findOne({email: req.body.email}).select('+password');
 
         if(!user){
-            return res.send({
-                message: 'User does not exist',
-                success: false
-            })
+            return res.status(404).json({ message: 'User does not exist', success: false });
         }
 
         const isvalid = await bcrypt.compare(req.body.password, user.password);
         if(!isvalid){
-            return res.send({
-                message: 'invalid password',
-                success: false
-            })
+            return res.status(401).json({ message: 'Invalid password', success: false });
         }
 
         const token = jwt.sign({userId: user._id}, process.env.SECRET_KEY, {expiresIn: "3d"});
 
-        res.send({
-            message: 'user logged-in successfully',
-            success: true,
-            token: token
-        });
+        res.status(200).json({ message: 'User logged in successfully', success: true, token });
 
     }catch(error){
-        res.send({
-            message: error.message,
-            success: false
-        })
+        res.status(500).json({ message: err.message, success: false });
     }
 });
 

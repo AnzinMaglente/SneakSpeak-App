@@ -92,14 +92,14 @@ export default function IndexContent() {
       <section className="relative w-full mb-10 flex flex-col items-center text-white-text">
         <img
           className="h-full w-full object-cover"
-          src="src\assets\Hero Image Banner.jpg"
+          src="/Hero Image Banner.jpg"
         />
         <div className="absolute inset-0 w-full h-full object-cover bg-blue-400/60" />
         <div className="absolute top-2/5 w-full flex flex-col items-center">
           <h1 className="max-w-3xl text-4xl md:text-5xl text-center font-semibold leading-17">
             Create Stunning and Intuitive Articles in Seconds with
           </h1>
-          <img className="h-fit w-fit" src="src\assets\sneakspeak_logo.png" />
+          <img className="h-fit w-fit" src="/sneakspeak_logo.png" />
           <p className="max-w-3xl mt-4 text-xl text-center text-gray-300 leading-9">
             A powerful, modern platform designed to help you publish
             professional-quality content effortlessly.
@@ -133,10 +133,7 @@ export default function IndexContent() {
 
       {/* Website Preview */}
       <div className="relative w-11/12 md:w-4/5 h-72 mx-auto mt-12 bg-gray-200 rounded-xl shadow-inner">
-        <img
-          className="h-full w-full object-cover"
-          src="src\assets\sample preview.png"
-        />
+        <img className="h-full w-full object-cover" src="/sample preview.png" />
         <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md" />
         <p className="absolute inset-0 flex items-center justify-center text-4xl text-white-text">
           Watch your ideas turn into a beautiful page
@@ -201,7 +198,7 @@ export default function IndexContent() {
       {/* Featured Articles */}
       <section className="mt-24 px-8 pb-15 max-w-6xl mx-auto">
         <h2 className="mb-6 text-2xl font-semibold">Featured Blogs:</h2>
-        {articles.length > 0 ? (
+        {articles && articles.length > 0 ? (
           <>
             <Carousel
               showDots={true}
@@ -218,7 +215,6 @@ export default function IndexContent() {
                   title={item.title}
                   description={item.description}
                   lastUpdated={item.updatedAt}
-                  image={item.image}
                 />
               ))}
             </Carousel>

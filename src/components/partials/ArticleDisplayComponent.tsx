@@ -7,7 +7,6 @@ export default function ArticleDisplayComponent({
   title = "Untitled Article",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
   lastUpdated = "00/00/0000",
-  image = "",
 }) {
   return (
     <div className="relative h-45 rounded-xl shadow-inner bg-white  ">

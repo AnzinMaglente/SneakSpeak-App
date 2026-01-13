@@ -18,25 +18,28 @@ export default function SignInContent() {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    let response = null;
 
+    if (user.password !== conpassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    dispatch(showLoader());
     try {
-      dispatch(showLoader());
-      if (user.password !== conpassword) {
-        toast.error("Passwords do not match");
-      } else {
-        response = await signinUser(user);
-        dispatch(hideLoader());
-        if (response.success) {
-          toast.success("Sign in successful! Please log in.");
-          navigate("/", { replace: true });
-        } else {
-          toast.error(response.message || "Sign in failed.");
-        }
-      }
-    } catch (err) {
+      const response = await signinUser(user);
       dispatch(hideLoader());
-      toast.error(response.message || "An error occurred during sign in.");
+
+      if (response.success) {
+        toast.success("Sign up successful! Please log in.");
+        navigate("/", { replace: true });
+      } else {
+        toast.error(response.message || "Sign up failed.");
+      }
+    } catch (err: any) {
+      dispatch(hideLoader());
+      toast.error(
+        err.response?.data?.message || "An error occurred during sign up."
+      );
     }
   }
 

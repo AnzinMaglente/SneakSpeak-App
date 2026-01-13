@@ -3,11 +3,11 @@ import { axiosInstance } from "./index";
 
 export const saveArticle = async (article: any) => {
   try {
-    const response = await axiosInstance.post(
-      "http://localhost:5000/article/save-article",
+    const { data } = await axiosInstance.post(
+      "/api/article/save-article",
       article
     );
-    return response.data;
+    return data;
   } catch (err) {
     return err;
   }
@@ -15,10 +15,8 @@ export const saveArticle = async (article: any) => {
 
 export const getArticle = async (id: string) => {
   try {
-    const response = await axiosInstance.get(
-      `http://localhost:5000/article/get-article/${id}`
-    );
-    return response.data;
+    const { data } = await axiosInstance.get(`/api/article/get-article/${id}`);
+    return data;
   } catch (err) {
     return err;
   }
@@ -26,10 +24,8 @@ export const getArticle = async (id: string) => {
 
 export const getAllArticles = async () => {
   try {
-    const response = await axios.get(
-      "http://localhost:5000/article/get-all-articles"
-    );
-    return response.data;
+    const { data } = await axios.get("/api/article/get-all-articles");
+    return data;
   } catch (err) {
     return err;
   }
@@ -37,10 +33,10 @@ export const getAllArticles = async () => {
 
 export const getAllUserArticles = async () => {
   try {
-    const response = await axiosInstance.get(
-      "http://localhost:5000/article/get-all-user-articles"
+    const { data } = await axiosInstance.get(
+      "/api/article/get-all-user-articles"
     );
-    return response.data;
+    return data;
   } catch (err) {
     return err;
   }
@@ -48,11 +44,11 @@ export const getAllUserArticles = async () => {
 
 export const editArticle = async (id: string, article: any) => {
   try {
-    const response = await axiosInstance.patch(
-      `http://localhost:5000/article/edit-article/${id}`,
+    const { data } = await axiosInstance.patch(
+      `/api/article/edit-article/${id}`,
       article
     );
-    return response.data;
+    return data;
   } catch (err) {
     return err;
   }
@@ -60,10 +56,10 @@ export const editArticle = async (id: string, article: any) => {
 
 export const deleteArticle = async (id: string) => {
   try {
-    const response = await axiosInstance.delete(
-      `http://localhost:5000/article/delete-article/${id}`
+    const { data } = await axiosInstance.delete(
+      `/api/article/delete-article/${id}`
     );
-    return response.data;
+    return data;
   } catch (err) {
     return err;
   }

@@ -2,10 +2,8 @@ import { axiosInstance } from ".";
 
 export const getLoggedUser = async () => {
   try {
-    const response = await axiosInstance.get(
-      "http://localhost:5000/user/get-logged-user"
-    );
-    return response.data;
+    const { data } = await axiosInstance.get("/api/user/get-logged-user");
+    return data;
   } catch (err) {
     return err;
   }

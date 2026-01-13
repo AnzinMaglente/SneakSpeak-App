@@ -2,11 +2,10 @@ import { axiosInstance } from "./index";
 
 export const saveImage = async (image: any) => {
   try {
-    const response = await axiosInstance.post(
-      "http://localhost:5000/image/save-image",
-      { image }
-    );
-    return response.data;
+    const { data } = await axiosInstance.post("/api/image/save-image", {
+      image,
+    });
+    return data;
   } catch (err) {
     return err;
   }
@@ -14,10 +13,8 @@ export const saveImage = async (image: any) => {
 
 export const getImage = async () => {
   try {
-    const response = await axiosInstance.get(
-      "http://localhost:5000/image/get-image/:id"
-    );
-    return response.data;
+    const { data } = await axiosInstance.get("/api/image/get-image/:id");
+    return data;
   } catch (err) {
     return err;
   }
@@ -25,10 +22,10 @@ export const getImage = async () => {
 
 export const getAllUserImages = async () => {
   try {
-    const response = await axiosInstance.get(
-      "http://localhost:5000/image/get-all-user-images/:userID"
+    const { data } = await axiosInstance.get(
+      "/api/image/get-all-user-images/:userID"
     );
-    return response.data;
+    return data;
   } catch (err) {
     return err;
   }
@@ -36,11 +33,8 @@ export const getAllUserImages = async () => {
 
 export const deleteImage = async (image: any) => {
   try {
-    const response = await axiosInstance.post(
-      "http://localhost:5000/image/delete-image",
-      image
-    );
-    return response.data;
+    const { data } = await axiosInstance.post("/image/delete-image", image);
+    return data;
   } catch (err) {
     return err;
   }

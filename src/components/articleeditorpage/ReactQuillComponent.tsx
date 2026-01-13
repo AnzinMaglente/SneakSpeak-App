@@ -69,7 +69,7 @@ function ReactQuillComponent({
       <ReactQuill
         theme="snow"
         value={value}
-        onChange={(content, delta, source, editor) => {
+        onChange={(_content, _delta, _source, editor) => {
           onChange(editor.getContents());
         }}
         className="h-105"
