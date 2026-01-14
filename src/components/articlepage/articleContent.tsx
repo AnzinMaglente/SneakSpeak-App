@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getArticle } from "../../apis/article";
+import { getArticle } from "../../api/article";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 import moment from "moment";
 

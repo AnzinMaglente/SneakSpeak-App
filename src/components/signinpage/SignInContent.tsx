@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { signinUser } from "../../apis/auth";
+import { signinUser } from "../../api/auth";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loaderSlice";
 

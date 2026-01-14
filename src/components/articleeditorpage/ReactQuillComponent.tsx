@@ -72,7 +72,7 @@ function ReactQuillComponent({
         onChange={(_content, _delta, _source, editor) => {
           onChange(editor.getContents());
         }}
-        className="h-105"
+        className="h-80 xl:h-105"
         modules={modules}
         formats={formats}
       />

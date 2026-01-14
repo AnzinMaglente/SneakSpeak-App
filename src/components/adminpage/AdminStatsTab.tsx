@@ -22,7 +22,7 @@ export default function AdminStatsTab() {
         <h3 className="mx-6">Views</h3>
         <hr className="w-19/20 mx-auto my-6 border-gray-600" />
         {/* Sample Graph */}
-        <div className="flex w-19/20 h-65 mx-auto bg-gray-100 rounded-lg border border-gray-200 p-4 items-center justify-center text-center ">
+        <div className="flex w-19/20 h-65 lg:mx-auto bg-gray-100 rounded-lg border border-gray-200 p-4 items-center justify-center text-center ">
           {isNotEmpty ? <ChartComponent /> : <p>Graph goes here</p>}
         </div>
         <div className="flex">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ArticlePanel from "../partials/ArticlePanelComponent";
-import { getAllUserArticles } from "../../apis/article";
+import { getAllUserArticles } from "../../api/article";
 
 interface Articles {
   _id: string;
@@ -36,10 +36,7 @@ export default function AdminHomeTab() {
       <div className="flex mx-6 items-center justify-between">
         {/* Section Title */}
         <div className="container mx-auto flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-blue-600">
-            {/* For Testing purposes */}
-            Articles
-          </h2>
+          <h2 className="text-xl font-semibold text-blue-600">Articles</h2>
           <Link to={"/articleEditor"}>
             <button className="p-3 bg-slate-900 hover:bg-slate-800 text-white  transition rounded-xl shadow cursor-pointer">
               Create New Article
@@ -49,8 +46,8 @@ export default function AdminHomeTab() {
       </div>
       <hr className="w-19/20 mx-auto my-6 border-gray-700" />
       <div className="overflow-y-scroll h-120 pt-6">
-        {(articles && articles.length != 0) ? (
-          <div className="grid grid-flow-row grid-cols-3 gap-13 gap-y-8 mx-6">
+        {articles && articles.length != 0 ? (
+          <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-13 gap-y-8 mx-6 overflow-x-hidden">
             {/* Sample Article */}
             {articles.map((item) => (
               <ArticlePanel

@@ -8,7 +8,7 @@ export default function AdminCommentsTab() {
         Comments
       </h2>
       <hr className="w-19/20 mx-auto my-6 border-gray-600" />
-      <div className="w-full max-w-4xl max-h-120 mx-auto overflow-y-scroll ">
+      <div className="w-7/8 lg:w-full max-w-4xl max-h-120 mx-auto overflow-y-scroll ">
         {/* Sample Comments */}
         {[
           {

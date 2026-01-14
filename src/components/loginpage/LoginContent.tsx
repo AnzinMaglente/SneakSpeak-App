@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { loginUser } from "../../apis/auth";
+import { loginUser } from "../../api/auth";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loaderSlice";
 

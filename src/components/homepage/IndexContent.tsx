@@ -5,7 +5,7 @@ import { InView } from "react-intersection-observer";
 import "react-multi-carousel/lib/styles.css";
 import ArticleComponent from "../partials/ArticleDisplayComponent.tsx";
 import { CodeOff, Feed, ImportantDevices, Share } from "@mui/icons-material";
-import { getAllArticles } from "../../apis/article.tsx";
+import { getAllArticles } from "../../api/article.tsx";
 
 // responsive variable for carousel
 const responsive = {
@@ -92,15 +92,15 @@ export default function IndexContent() {
       <section className="relative w-full mb-10 flex flex-col items-center text-white-text">
         <img
           className="h-full w-full object-cover"
-          src="/Hero Image Banner.jpg"
+          src="\Hero Image Banner.jpg"
         />
         <div className="absolute inset-0 w-full h-full object-cover bg-blue-400/60" />
-        <div className="absolute top-2/5 w-full flex flex-col items-center">
-          <h1 className="max-w-3xl text-4xl md:text-5xl text-center font-semibold leading-17">
+        <div className="absolute top-1/5 lg:top-2/5 w-full flex flex-col items-center">
+          <h1 className="max-w-3xl text-2xl md:text-3xl text-center font-semibold leading-17">
             Create Stunning and Intuitive Articles in Seconds with
           </h1>
-          <img className="h-fit w-fit" src="/sneakspeak_logo.png" />
-          <p className="max-w-3xl mt-4 text-xl text-center text-gray-300 leading-9">
+          <img className="h-fit w-fit" src="\sneakspeak_logo.png" />
+          <p className="max-w-3xl mt-2 text-sm md:mt-4 md:text-xl text-center text-gray-300 leading-9">
             A powerful, modern platform designed to help you publish
             professional-quality content effortlessly.
           </p>
@@ -133,9 +133,9 @@ export default function IndexContent() {
 
       {/* Website Preview */}
       <div className="relative w-11/12 md:w-4/5 h-72 mx-auto mt-12 bg-gray-200 rounded-xl shadow-inner">
-        <img className="h-full w-full object-cover" src="/sample preview.png" />
+        <img className="h-full w-full object-cover" src="\sample preview.png" />
         <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md" />
-        <p className="absolute inset-0 flex items-center justify-center text-4xl text-white-text">
+        <p className="absolute inset-0 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl text-white-text">
           Watch your ideas turn into a beautiful page
         </p>
       </div>
@@ -228,38 +228,3 @@ export default function IndexContent() {
     </div>
   );
 }
-
-[
-  // {
-  //   title:
-  //     "The sea calls to live-action ‘Moana’ Catherine Lagaʻaia in the film’s first trailer",
-  //   description:
-  //     'Moana will once again see how far she’ll go, this time in Disney’s live-action remake of "Moana."',
-  //   lastUpdated: "18/11/2025",
-  //   image: "../../src/assets/Samples/Moana sample.png",
-  // },
-  // {
-  //   title:
-  //     "Megabonk Developer Withdraws Game From The Game Awards, Saying It Doesn't Qualify for Debut Indie",
-  //   description:
-  //     '10 hours, 5 minutes - "i really appreciate the nomination, support and votes, but it doesn&apos;t feel right in this category."',
-  //   lastUpdated: "19/11/2025",
-  //   image: "../../src/assets/Samples/Megabonk sample.png",
-  // },
-  // {
-  //   title:
-  //     "Tom Cruise accepts honorary Oscar: ‘Making films is not what I do. It’s who I am’",
-  //   description:
-  //     "Tom Cruise speaks onstage during the 16th Governors Awards at the Ray Dolby Ballroom in Hollywood on Sunday. He received the night’s longest ovation. (Kevin Winter / Getty Images)",
-  //   lastUpdated: "17/11/2025",
-  //   image: "../../src/assets/Samples/Tom Cruise sample.png",
-  // },
-  // {
-  //   title:
-  //     "Among Us And Stardew Valley Collab Brings Free Rewards For A Limited Time",
-  //   description:
-  //     "For the next few months, you can grab some free Stardew Valley cosmetics in Among Us.",
-  //   lastUpdated: "18/11/2025",
-  //   image: "../../src/assets/Samples/Among Us sample.png",
-  // },
-];

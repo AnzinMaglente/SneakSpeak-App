@@ -25,7 +25,7 @@ export const loginUser = async (user: any) => {
     }
 
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };

@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { deleteArticle } from "../../apis/article";
+import { deleteArticle } from "../../api/article";
 import moment from "moment";
 
 const style = {

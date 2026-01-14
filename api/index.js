@@ -37,7 +37,6 @@ async function connectDB() {
   return cached.conn;
 }
 
-/* ------------------ ensure DB per request ------------------ */
 app.use(async (req, res, next) => {
   try {
     await connectDB();

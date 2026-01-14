@@ -8,8 +8,8 @@ export const saveArticle = async (article: any) => {
       article
     );
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };
 
@@ -17,8 +17,8 @@ export const getArticle = async (id: string) => {
   try {
     const { data } = await axiosInstance.get(`/api/article/get-article/${id}`);
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };
 
@@ -26,8 +26,8 @@ export const getAllArticles = async () => {
   try {
     const { data } = await axios.get("/api/article/get-all-articles");
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };
 
@@ -37,8 +37,8 @@ export const getAllUserArticles = async () => {
       "/api/article/get-all-user-articles"
     );
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };
 
@@ -49,8 +49,8 @@ export const editArticle = async (id: string, article: any) => {
       article
     );
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };
 
@@ -60,7 +60,7 @@ export const deleteArticle = async (id: string) => {
       `/api/article/delete-article/${id}`
     );
     return data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return err.response?.data || { success: false, message: err.message };
   }
 };

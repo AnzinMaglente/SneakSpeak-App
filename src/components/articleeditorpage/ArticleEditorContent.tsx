@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { editArticle, getArticle, saveArticle } from "../../apis/article";
+import { editArticle, getArticle, saveArticle } from "../../api/article";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 import Delta from "quill-delta";
 
@@ -92,7 +92,7 @@ export default function ArticleEditorContent() {
 
   return (
     <div className=" bg-gray-200 pt-20 pb-5">
-      <div className="min-h-140 mx-37 px-5 pt-10 pb-5 bg-white border-2 border-black rounded-md bg-gradient-to-b from-white-2 from-1% via-secondary shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div className="min-h-140 mx-10 md:mx-37 px-5 pt-10 pb-5 bg-white border-2 border-black rounded-md bg-gradient-to-b from-white-2 from-1% via-secondary shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         {!id ? (
           <h2 className="text-3xl font-semibold">Create New Article</h2>
         ) : (
@@ -115,7 +115,7 @@ export default function ArticleEditorContent() {
               <label className="w-auto mr-5 text-xl">Article Title:</label>
               <input
                 type="text"
-                className="w-1/2 ml-15.5 px-2 mt-2 border-1 shadow-md overflow-y-auto"
+                className="w-1/2 xl:ml-15.5 px-2 mt-2 border-1 shadow-md overflow-y-auto"
                 value={article.title}
                 onChange={(e) =>
                   setArticle({ ...article, title: e.target.value })
@@ -176,7 +176,7 @@ export default function ArticleEditorContent() {
               </RadioGroup>
             </div>
             <label className="w-auto mt-5 text-xl">Article Editor:</label>
-            <div className="mb-25 mt-6">
+            <div className="mb-60 lg:mb-40 xl:mb-35 mt-6">
               {/* Article Editor*/}
               <ReactQuillComponent
                 value={article.delta}
