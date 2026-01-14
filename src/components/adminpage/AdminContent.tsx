@@ -67,7 +67,7 @@ export default function AdminContent() {
   };
 
   return (
-    <div className=" bg-gray-200 pt-25 pb-10">
+    <div className=" bg-gray-300 pt-25 pb-10">
       <main className="relative min-h-170 mx-10 flex-column justify-items-center rounded-xl bg-white border-2 border-black shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         {/* Tabs Design and Details */}
         <Box

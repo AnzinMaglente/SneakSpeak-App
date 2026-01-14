@@ -91,7 +91,7 @@ export default function ArticleEditorContent() {
   }
 
   return (
-    <div className=" bg-gray-200 pt-20 pb-5">
+    <div className=" bg-gray-300 pt-20 pb-5">
       <div className="min-h-140 mx-10 md:mx-37 px-5 pt-10 pb-5 bg-white border-2 border-black rounded-md bg-gradient-to-b from-white-2 from-1% via-secondary shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         {!id ? (
           <h2 className="text-3xl font-semibold">Create New Article</h2>

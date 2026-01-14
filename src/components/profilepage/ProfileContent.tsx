@@ -4,7 +4,7 @@ import ProfileEmailComponent from "./ProfileEmailComponent";
 
 export default function ProfileContent() {
   return (
-    <div className=" bg-gray-200 pt-25 pb-10">
+    <div className=" bg-gray-300 pt-25 pb-10">
       <div className="h-245 px-38 bg-gradient-to-b from-white-2 from-1% via-secondary">
         {/* Header */}
         <h1 className="text-3xl font-semibold mb-4">Your Profile</h1>
