@@ -1,10 +1,12 @@
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminSettingsTab() {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    localStorage.setItem("token", "");
+  const handleClick = async () => {
+    await localStorage.removeItem("token");
+    delete axios.defaults.headers.common["Authorization"];
     navigate("/", { replace: true });
   };
 

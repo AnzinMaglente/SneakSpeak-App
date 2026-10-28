@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { signinUser } from "../../api/auth";
+import { signinUser } from "../../apis/auth";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loaderSlice";
 
@@ -18,28 +18,25 @@ export default function SignInContent() {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
+    let response = null;
 
-    if (user.password !== conpassword) {
-      toast.error("Passwords do not match");
-      return;
-    }
-
-    dispatch(showLoader());
     try {
-      const response = await signinUser(user);
-      dispatch(hideLoader());
-
-      if (response.success) {
-        toast.success("Sign up successful! Please log in.");
-        navigate("/", { replace: true });
+      dispatch(showLoader());
+      if (user.password !== conpassword) {
+        toast.error("Passwords do not match");
       } else {
-        toast.error(response.message || "Sign up failed.");
+        response = await signinUser(user);
+        dispatch(hideLoader());
+        if (response.success) {
+          toast.success("Sign in successful! Please log in.");
+          navigate("/", { replace: true });
+        } else {
+          toast.error(response.message || "Sign in failed.");
+        }
       }
-    } catch (err: any) {
+    } catch (err) {
       dispatch(hideLoader());
-      toast.error(
-        err.response?.data?.message || "An error occurred during sign up."
-      );
+      toast.error(response.message || "An error occurred during sign in.");
     }
   }
 

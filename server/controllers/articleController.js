@@ -1,8 +1,9 @@
 const router = require('express').Router();
+const mongoose = require("mongoose");
 const authMiddleware = require('../middlewares/authMiddleware'); 
 const Article = require('../models/articlesContent.model');
 
-// Saves a new article | edits an existing article
+// Saves a new article
 router.route('/save-article').post(authMiddleware, async (req, res) => {
     try{
         const title = await Article.findOne({title: req.body.title});
@@ -11,8 +12,7 @@ router.route('/save-article').post(authMiddleware, async (req, res) => {
         }
         
         const newArticle = new Article({
-            userID: req.userID,
-            imageID: req.body.imageID,
+            userID: new mongoose.Types.ObjectId(req.userId),
             title: req.body.title,
             description: req.body.description,
             tag: req.body.tag,
@@ -21,7 +21,7 @@ router.route('/save-article').post(authMiddleware, async (req, res) => {
 
         await newArticle.save();
         
-        res.status(201).send({message: "Article saved successfully", 
+        res.status(200).send({message: "Article saved successfully", 
                               success:true,
                               data: newArticle
                               });
@@ -38,7 +38,7 @@ router.route('/get-article/:id').get(async (req, res) => {
     try{
         const article = await Article.findById(req.params.id);
 
-        res.status(201).send({
+        res.status(200).send({
             message: "Article fetched successfully",
             success: true,
             data: article
@@ -56,7 +56,7 @@ router.route('/get-all-articles').get(async (req, res) => {
     try{
         const allArticles = await Article.find();
 
-        res.status(201).send({
+        res.status(200).send({
             message: "All articles fetched successfully",
             success: true,
             data: allArticles
@@ -72,19 +72,19 @@ router.route('/get-all-articles').get(async (req, res) => {
 // Get all articles from a specific user.
 router.route('/get-all-user-articles').get(authMiddleware, async (req, res) => {
     try{
-        const userId = req.userId
-        const allArticles = await Article.find({_id: {$ne: userId}});
+        const allArticles = await Article.find({ userID: req.userId });
 
-        res.status(201).send({
+        res.status(200).send({
             message: "User articles fetched successfully",
             success: true,
             data: allArticles
         })
     }catch(err){
-        res.status(400).send({
+        console.error("Full error in get-all-user-articles:", err);
+        res.status(500).json({
             message: err.message,
             success: false
-        })
+        });
     }
 })
 

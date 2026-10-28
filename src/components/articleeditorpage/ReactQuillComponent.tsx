@@ -19,7 +19,7 @@ function ReactQuillComponent({
         { script: "sub" },
         { script: "super" },
       ],
-      ["blockquote", "code-block"],
+      ["blockquote"],
       [
         { list: "ordered" },
         { list: "bullet" },
@@ -44,7 +44,6 @@ function ReactQuillComponent({
     "script",
 
     "blockquote",
-    "code-block",
 
     "list",
     "indent",

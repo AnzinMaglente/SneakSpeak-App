@@ -6,15 +6,12 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.route('/get-logged-user').get(authMiddleware, async (req, res) => {
     try{
         const user = await User.findOne({_id: req.userId});
-        if (!user) {
-            return res.status(404).json({ message: 'User not found', success: false });
-        }
 
-        res.status(200).json({
-            message: 'User fetched successfully',
-            success: true,
-            data: user
-        });
+        res.send({
+            message : "user fetched successfully",
+            success : true,
+            data : user
+        })
     }
     catch(err){
         res.status(400).send({

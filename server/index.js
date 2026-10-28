@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require("cors");
 const mongoose = require('mongoose')
+const path = require('path');
 
 // routes
 const authRouter = require('./controllers/authController')
@@ -10,42 +11,28 @@ const commentGroupRouter = require('./controllers/commentGroupController')
 const imageRouter = require('./controllers/imageController')
 const userRouter = require('./controllers/userController')
 
-const app = express();
+// config files
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });;
 
-// MIDDLEWARE
+const app = express();
+const port = process.env.PORT || 5000;
+
+// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-let cached = global.mongoose;
+// Connects to mongodb
+const uri = process.env.COMPASS_URI;
+mongoose.connect(uri)
+        .then(() => console.log("DB connected!"))
+        .catch(err => console.error("Error connecting to Mongo", err));
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully");
+})
 
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function connectDB() {
-  if (cached.conn) return cached.conn;
-
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(process.env.MONGODB_URI, {
-      bufferCommands: false,
-    });
-  }
-
-  cached.conn = await cached.promise;
-  console.log('MongoDB connected');
-  return cached.conn;
-}
-
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (err) {
-    res.status(500).json({ error: 'Database connection failed' });
-  }
-});
-
+// Server Routers
 app.use('/article', articleRouter);
 app.use('/auth', authRouter);
 app.use('/comment', commentRouter);
@@ -53,8 +40,4 @@ app.use('/commentGroup', commentGroupRouter);
 app.use('/image', imageRouter);
 app.use('/user', userRouter);
 
-app.get('/', (req, res) => {
-  res.json({ status: 'API is running' });
-});
-
-module.exports = app;
+app.listen(port, () => console.log(`Server running on port: ${port}`));

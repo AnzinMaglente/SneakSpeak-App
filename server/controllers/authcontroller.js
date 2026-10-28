@@ -9,7 +9,7 @@ router.route('/signin').post(async (req, res) => {
         const user = await User.findOne({email: req.body.email});
 
         if(user){
-            return res.status(400).json({
+            return res.send({
                 message: 'User already exists.',
                 success: false
             })
@@ -26,31 +26,48 @@ router.route('/signin').post(async (req, res) => {
             success: true
         });
 
-    }catch(err){
-        res.status(500).json({ message: err.message, success: false });
+    }catch(error){
+        res.send({
+            message: error.message,
+            success: false
+        });
     }
 })
 
 // Login Authentication
 router.route('/login').post(async (req, res) => {
     try{
+
         const user = await User.findOne({email: req.body.email}).select('+password');
 
         if(!user){
-            return res.status(404).json({ message: 'User does not exist', success: false });
+            return res.send({
+                message: 'User does not exist',
+                success: false
+            })
         }
 
         const isvalid = await bcrypt.compare(req.body.password, user.password);
         if(!isvalid){
-            return res.status(401).json({ message: 'Invalid password', success: false });
+            return res.send({
+                message: 'invalid password',
+                success: false
+            })
         }
 
-        const token = jwt.sign({userId: user._id}, process.env.SECRET_KEY, {expiresIn: "3d"});
+        const token = jwt.sign({userId: user._id.toString()}, process.env.SECRET_KEY, {expiresIn: "3d"});
 
-        res.status(200).json({ message: 'User logged in successfully', success: true, token });
+        res.send({
+            message: 'user logged-in successfully',
+            success: true,
+            token: token
+        });
 
-    }catch(err){
-        res.status(500).json({ message: err.message, success: false });
+    }catch(error){
+        res.send({
+            message: error.message,
+            success: false
+        })
     }
 });
 

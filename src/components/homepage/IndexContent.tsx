@@ -5,7 +5,7 @@ import { InView } from "react-intersection-observer";
 import "react-multi-carousel/lib/styles.css";
 import ArticleComponent from "../partials/ArticleDisplayComponent.tsx";
 import { CodeOff, Feed, ImportantDevices, Share } from "@mui/icons-material";
-import { getAllArticles } from "../../api/article.tsx";
+import { getAllArticles } from "../../apis/article.tsx";
 
 // responsive variable for carousel
 const responsive = {
@@ -92,20 +92,20 @@ export default function IndexContent() {
       <section className="relative w-full mb-10 flex flex-col items-center text-white-text">
         <img
           className="h-full w-full object-cover"
-          src="\Hero Image Banner.jpg"
+          src="src\assets\Hero Image Banner.jpg"
         />
         <div className="absolute inset-0 w-full h-full object-cover bg-blue-400/60" />
         <div className="absolute top-1/5 lg:top-2/5 w-full flex flex-col items-center">
           <h1 className="max-w-3xl text-2xl md:text-3xl text-center font-semibold leading-17">
             Create Stunning and Intuitive Articles in Seconds with
           </h1>
-          <img className="h-fit w-fit" src="\sneakspeak_logo.png" />
+          <img className="h-fit w-fit" src="src\assets\sneakspeak_logo.png" />
           <p className="max-w-3xl mt-2 text-sm md:mt-4 md:text-xl text-center text-gray-300 leading-9">
-            A powerful, modern platform designed to help you publish
-            professional-quality content effortlessly.
+            A powerful, modern-day platform designed to help you publish
+            professional-grade content effortlessly.
           </p>
-          <Link to={"/signin"}>
-            <button className="mt-8 px-8 py-3 text-lg bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition cursor-pointer">
+          <Link to={"/signin"} className="mt-8">
+            <button className="px-8 py-3 text-lg bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition cursor-pointer">
               Start Creating Today!
             </button>
           </Link>
@@ -132,8 +132,11 @@ export default function IndexContent() {
       </InView>
 
       {/* Website Preview */}
-      <div className="relative w-11/12 md:w-4/5 h-72 mx-auto mt-12 bg-gray-200 rounded-xl shadow-inner">
-        <img className="h-full w-full object-cover" src="\sample preview.png" />
+      <div className="relative w-11/12 md:w-4/5 h-72 mx-auto mt-12 bg-gray-300 rounded-xl shadow-inner">
+        <img
+          className="h-full w-full object-cover"
+          src="src\assets\sample preview.png"
+        />
         <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md" />
         <p className="absolute inset-0 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl text-white-text">
           Watch your ideas turn into a beautiful page
@@ -197,7 +200,7 @@ export default function IndexContent() {
 
       {/* Featured Articles */}
       <section className="mt-24 px-8 pb-15 max-w-6xl mx-auto">
-        <h2 className="mb-6 text-2xl font-semibold">Featured Blogs:</h2>
+        <h2 className="mb-6 text-2xl font-semibold">Featured Articles:</h2>
         {articles && articles.length > 0 ? (
           <>
             <Carousel

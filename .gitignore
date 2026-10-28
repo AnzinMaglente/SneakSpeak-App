@@ -25,5 +25,3 @@ dist-ssr
 
 # Environment Links
 .env
-.vercel
-.env*.local

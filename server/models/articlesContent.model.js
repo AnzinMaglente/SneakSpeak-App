@@ -3,13 +3,8 @@ const mongoose = require('mongoose');
 // Article schema
 const articleSchema = new mongoose.Schema ({
     userID: {
-      type: mongoose.Schema.Types.ObjectId, ref: "users",
-    },
-    commentGroupID: {
-      type: mongoose.Schema.Types.ObjectId, ref: "commentsGroup",
-    },
-    imageID: {
-      type: mongoose.Schema.Types.ObjectId, ref: "image",
+      type: mongoose.Schema.Types.ObjectId, ref: "User",
+      required: true,
     },
     title: {
       type: String,

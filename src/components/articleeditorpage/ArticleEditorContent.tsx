@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { editArticle, getArticle, saveArticle } from "../../api/article";
+import { editArticle, getArticle, saveArticle } from "../../apis/article";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 import Delta from "quill-delta";
 
@@ -217,20 +217,3 @@ export default function ArticleEditorContent() {
     </div>
   );
 }
-
-// import { HtmlToDelta } from "quill-delta-from-html";
-
-// // converts html to delta
-// const quillcontent = (content: any) => {
-//   const delta = new HtmlToDelta().convert(content);
-//   console.log(delta, "delta");
-//   setHtmlContent(htmlconverter(delta));
-//   setArticle({ ...article, delta: delta });
-// };
-
-// // converts delta to html
-// const htmlconverter = (delta: any) => {
-//   const converter = new QuillDeltaToHtmlConverter(delta.ops, {});
-//   const htmlcontent = converter.convert();
-//   return htmlcontent;
-// };

@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { loginUser } from "../../api/auth";
+import { loginUser } from "../../apis/auth";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loaderSlice";
+import axios from "axios";
 
 export default function AuthContent() {
   const navigate = useNavigate();
@@ -25,6 +26,10 @@ export default function AuthContent() {
       if (response.success) {
         toast.success("Login successful!");
         localStorage.setItem("token", response.token);
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${response.token}`;
+        
         navigate("/admin", { replace: true });
       } else {
         toast.error(response.message || "Login failed.");

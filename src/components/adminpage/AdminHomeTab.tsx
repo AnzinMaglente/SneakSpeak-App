@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ArticlePanel from "../partials/ArticlePanelComponent";
-import { getAllUserArticles } from "../../api/article";
+import { getAllUserArticles } from "../../apis/article";
 
 interface Articles {
   _id: string;
